@@ -1,0 +1,11 @@
+a = "hello"
+len1 = print(len(a))
+print(len1)
+
+b = "world"
+len2 = print(len(b))
+print (len2)
+
+final_str = a + " " + b
+print(final_str)
+print(len(final_str))
