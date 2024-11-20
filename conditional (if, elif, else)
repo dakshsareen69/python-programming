@@ -1,6 +1,12 @@
-light = 'green'
+light = 'orange'
 if(light == 'red'):
     print("stop")
 
-elif('green'):
+elif(light == 'green'):
     print("go")
+
+elif(light == 'yellow'):
+    print("wait")
+
+else:
+    print('the light is broken')
