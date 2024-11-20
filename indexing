@@ -1,0 +1,3 @@
+str = "daksh sareen"
+ch = str[5]
+print (ch)
