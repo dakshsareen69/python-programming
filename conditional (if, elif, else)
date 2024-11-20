@@ -1,0 +1,6 @@
+light = 'green'
+if(light == 'red'):
+    print("stop")
+
+elif('green'):
+    print("go")
