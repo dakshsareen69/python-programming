@@ -1,0 +1,13 @@
+age = 89
+
+#nesting
+if(age >= 18):
+    if(age >= 80):
+        print("cannot drive")
+    else:
+       print("he can drive")
+
+
+else:
+    print("he cannot drive")
+
