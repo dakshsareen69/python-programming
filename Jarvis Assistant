@@ -1,0 +1,75 @@
+import pyttsx3
+import speech_recognition as sr
+import webbrowser
+import os
+
+# Initialize the pyttsx3 engine for text-to-speech
+engine = pyttsx3.init()
+
+# Set properties for speech engine
+engine.setProperty('rate', 150)  # Speed of speech
+engine.setProperty('volume', 10)  # Volume level (0.0 to 1.0)
+
+# Function to speak
+def speak(text):
+    engine.say(text)
+    engine.runAndWait()
+
+# Function to listen for commands
+def listen():
+    recognizer = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Listening for your command...")
+        audio = recognizer.listen(source)
+    try:
+        command = recognizer.recognize_google(audio).lower()
+        print(f"Recognized: {command}")
+        return command
+    except sr.UnknownValueError:
+        speak("Sorry, I did not understand that. Could you please repeat?")
+        return ""
+    except sr.RequestError:
+        speak("Sorry, I'm having trouble connecting to the internet.")
+        return ""
+
+# Function to open a website
+def open_website(website_name):
+    speak(f"Opening {website_name}")
+    if "youtube" in website_name:
+        webbrowser.open("https://www.youtube.com")
+    elif "chrome" in website_name:
+        # This will open Chrome (ensure Chrome is installed)
+        os.system("start chrome")
+    else:
+        # You can add more commands for other websites or applications
+        webbrowser.open(f"http://{website_name}")
+
+# Main function to handle commands
+def main():
+    speak("Hello, I am Jarvis. How can I assist you today?")
+    
+    while True:
+        command = listen()
+
+        if "open youtube" in command:
+            open_website("youtube")
+        
+        elif "open chrome" in command:
+            open_website("chrome")
+        
+        elif "exit" in command or "quit" in command:
+            speak("Goodbye!")
+            break
+
+        elif "how are you" in command:
+            speak("I am doing great, thank you for asking!")
+
+        elif "open" in command:
+            website_name = command.split("open")[-1].strip()
+            open_website(website_name)
+
+        else:
+            speak("Sorry, I didn't quite catch that. Please try again.")
+
+if __name__ == "__main__":
+    main()
