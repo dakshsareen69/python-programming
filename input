@@ -1,7 +1,19 @@
-name = input("enter your name:")
-age = input("enter your age:")
-marks = input("enter your marks:")
+a =  (input ("Enter the number 1: "))
+b =  (input ("Enter the number 2: "))
 
-print("welcome ", name)
-print("your age -", age)
-print("Your marks -", marks)
+print ("Number a is : ",a)    #   this is when the it is defined as a string
+print ("Number b is : ",b)    #  will give 1+2 = 12
+
+print("The sum is: ", a + b)
+
+# --------------------------------------------------------------------
+
+
+a = int (input ("Enter the number 1: "))
+b = int (input ("Enter the number 2: "))10
+
+print ("Number a is : ",a)    #   this is when the it is defined as a integer
+print ("Number b is : ",b)    # will give 1+2 = 3
+
+print("The sum is: ", a + b)
+
