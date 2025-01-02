@@ -1,0 +1,7 @@
+def avg_marks(a,b,c):
+    sum = a+b+c
+    average = sum/3
+    print(average)
+    return average
+
+avg_marks(10,10,10)
